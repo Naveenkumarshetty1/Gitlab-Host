@@ -1,0 +1,7 @@
+#Create s3 bucket 
+#Give respective permission "generate access&secret key"
+#Navigate to Cloudfront
+#Create distribution
+## origin domain,path,name then choose SSL certificate and create ##
+#once it is done create record on Route53 
+#
