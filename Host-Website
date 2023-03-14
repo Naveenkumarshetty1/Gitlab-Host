@@ -1,0 +1,19 @@
+stages:
+  - develop_build
+
+build:
+  stage: develop_build
+  only:
+    - develop
+  tags:
+    - mac-tokendrop
+    #Updated credentials
+  script:
+    - echo $DEV_ENV | base64 -d >.env
+    - npm i --legacy-peer-deps
+    - ./nmu.command
+    - CI=false npm run build
+    - ls
+    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PROD
+    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_PROD
+    - aws s3 sync build/ s3://$S3_BUCKET_NAME_PROD/
