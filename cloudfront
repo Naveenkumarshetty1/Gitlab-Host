@@ -1,0 +1,8 @@
+#Cloudfront 
+--->error pages 
+--->create customer error response 
+---->Create 
+403	10	/index.html	200
+404	10	/index.html	200
+
+then try 
